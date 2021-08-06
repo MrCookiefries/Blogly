@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Post: {{ post.id }}
+{% endblock title %}
+
+{% block body %}
+    <main>
+        <article>
+            <h2>{{ post.title }}</h2>
+            <p class="author">
+                By <b>{{ post.user.full_name }}</b>
+                on <i>{{ post.friendly_date }}</i>
+            </p>
+            <p class="story">{{ post.content }}</p>
+        </article>
+        <div>
+            <a href="/users/{{ post.user.id }}">
+                <button type="button">Author</button>
+            </a>
+            <a href="/posts/{{ post.id }}/edit">
+                <button type="button">Edit</button>
+            </a>
+            <form action="/posts/{{ post.id }}/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </main>
+{% endblock body %}

@@ -1,6 +1,7 @@
 """Models for Blogly."""
 
 from flask_sqlalchemy import SQLAlchemy
+import datetime
 
 db = SQLAlchemy()
 
@@ -38,6 +39,9 @@ class User(db.Model):
         default=pfp_link
     )
 
+    # can have many posts
+    posts = db.relationship("Post", backref="user", cascade="all, delete-orphan")
+
     def __repr__(self):
         u = self
         return f"<User id={u.id} first={u.first_name} last={u.last_name}>"
@@ -49,3 +53,45 @@ class User(db.Model):
         full_name = f"{self.first_name} {self.last_name}"
         return full_name
 
+class Post(db.Model):
+    """Posts table model"""
+    __tablename__ = "posts"
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True,
+        autoincrement=True
+    )
+
+    title = db.Column(
+        db.String(50),
+        nullable=False,
+    )
+
+    content = db.Column(
+        db.String,
+        nullable=False
+    )
+
+    created_at = db.Column(
+        db.DateTime,
+        nullable=False,
+        default=datetime.datetime.now
+    )
+
+    # has one author
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey("users.id"),
+        nullable=False
+    )
+
+    def __repr__(self):
+        p = self
+        return f"<Post id={p.id} user_id={p.user_id} title={p.title}>"
+
+    @property
+    def friendly_date(self):
+        """formats date into a nice format"""
+
+        return self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")

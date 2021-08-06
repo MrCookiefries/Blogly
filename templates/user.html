@@ -14,7 +14,7 @@
                 <h2>{{ user.full_name }}</h2>
                 <div>
                     <a href="/users">
-                        <button type="button">Back</button>
+                        <button type="button">Users</button>
                     </a>
                     <a href="/users/{{ user.id }}/edit">
                         <button class="edit" type="button">Edit</button>
@@ -25,5 +25,24 @@
                 </div>
             </section>
         </figure>
+        <section>
+            <h3>Posts</h3>
+            <a href="/users/{{ user.id }}/posts/new">
+                <button type="button">Add Post</button>
+            </a>
+            <ul>
+                {% if posts %}
+                    {% for post in posts %}
+                        <li>
+                            <a href="/posts/{{ post.id }}">
+                                {{ post.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>No posts created yet.</li>
+                {% endif %}
+            </ul>
+        </section>
     </main>
 {% endblock body %}
