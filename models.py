@@ -40,6 +40,7 @@ class User(db.Model):
     )
 
     # can have many posts
+    # posts have one user
     posts = db.relationship("Post", backref="user", cascade="all, delete-orphan")
 
     def __repr__(self):
@@ -86,6 +87,10 @@ class Post(db.Model):
         nullable=False
     )
 
+    # posts can have many tags
+    # tags can have many posts
+    tags = db.relationship("Tag", secondary="posts_tags", backref="posts")
+
     def __repr__(self):
         p = self
         return f"<Post id={p.id} user_id={p.user_id} title={p.title}>"
@@ -95,3 +100,46 @@ class Post(db.Model):
         """formats date into a nice format"""
 
         return self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")
+
+class Tag(db.Model):
+    """Tags table model"""
+    __tablename__ = "tags"
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True,
+        autoincrement=True
+    )
+
+    name = db.Column(
+        db.String(15),
+        nullable=False,
+        unique=True
+    )
+
+    def __repr__(self):
+        t = self
+        return f"<Tag id={t.id} name={t.name}>"
+
+class PostTag(db.Model):
+    """Tags for each Post model"""
+    __tablename__ = "posts_tags"
+
+    # has one post
+    post_id = db.Column(
+        db.Integer,
+        db.ForeignKey("posts.id"),
+        primary_key=True
+    )
+
+    # has one tag
+    tag_id = db.Column(
+        db.Integer,
+        db.ForeignKey("tags.id"),
+        primary_key=True
+    )
+
+    def __repr__(self):
+        pt = self
+        return f"<PostTag post_id={pt.post_id} tag_id={pt.tag_id}>"
+

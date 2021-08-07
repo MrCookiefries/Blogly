@@ -1,6 +1,7 @@
 """seed file to fill up database"""
 
-from models import User, Post, db
+from models import db, User, Post, Tag
+from random import sample, randint
 from app import app
 
 # reset the tables
@@ -23,6 +24,11 @@ for f, l in names:
     user = User(first_name=f, last_name=l)
     db.session.add(user)
 
+# tags
+tags = {"Fun", "Romance", "Scary", "Funny", "Happy", "Sad", "Surprising", "Animals", "Vacation"}
+
+db.session.add_all([Tag(name=t) for t in tags])
+
 db.session.commit()
 
 # posts
@@ -39,6 +45,13 @@ posts = [
 
 for t, c, i in posts:
     post = Post(title=t, content=c, user_id=i)
+    ran_num = randint(1, 4)
+    tags = Tag.query.all()
+    ran_tags = sample(tags, ran_num)
+
+    for tag in ran_tags:
+        post.tags.append(tag)
+    
     db.session.add(post)
 
 db.session.commit()

@@ -6,11 +6,7 @@
 
 {% block body %}
     <main>
-        <h2>Blogly</h2>
-        <a href="/users">
-            <button type="button">Users</button>
-        </a>
-        <h3>Recent Posts</h3>
+        <h2>Recent Posts</h2>
         <ul>
             {% for post in posts %}
                 <li>
@@ -18,6 +14,18 @@
                         {{ post.title }}
                     </a>
                     <small>{{ post.friendly_date }}</small>
+                    <p>
+                        <b>Tags: </b>
+                        {% if post.tags %}
+                            {% for tag in post.tags %}
+                                <span class="tag">
+                                    {{ tag.name }}
+                                </span>
+                            {% endfor %}
+                        {% else %}
+                            <span>No tags yet on this post.</span>
+                        {% endif %}
+                    </p>
                 </li>
             {% endfor %}
         </ul>

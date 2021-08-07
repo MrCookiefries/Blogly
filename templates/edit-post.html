@@ -16,6 +16,19 @@
                 Content
                 <textarea name="content" required>{{ post.content }}</textarea>
             </label>
+            <fieldset>
+                <legend>Tags</legend>
+                {% for tag in tags %}
+                    <label>
+                        {% if tag in post.tags %}
+                            <input checked name="tags" value="{{ tag.id }}" type="checkbox">
+                        {% else %}
+                            <input name="tags" value="{{ tag.id }}" type="checkbox">
+                        {% endif %}
+                        {{ tag.name }}
+                    </label>
+                {% endfor %}
+            </fieldset>
             <div>
                 <a href="/users/{{ post.user_id }}">
                     <button type="button">Cancel</button>

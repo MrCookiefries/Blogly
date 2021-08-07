@@ -12,6 +12,18 @@
                 By <b>{{ post.user.full_name }}</b>
                 on <i>{{ post.friendly_date }}</i>
             </p>
+            <p>
+                <b>Tags: </b>
+                {% if tags %}
+                    {% for tag in tags %}
+                        <span class="tag">
+                            {{ tag.name }}
+                        </span>
+                    {% endfor %}
+                {% else %}
+                    <span>No tags yet on this post.</span>
+                {% endif %}
+            </p>
             <p class="story">{{ post.content }}</p>
         </article>
         <div>
