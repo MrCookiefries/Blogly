@@ -12,7 +12,7 @@
                 By <b>{{ post.user.full_name }}</b>
                 on <i>{{ post.friendly_date }}</i>
             </p>
-            <p>
+            <p class="space">
                 <b>Tags: </b>
                 {% if tags %}
                     {% for tag in tags %}
@@ -26,15 +26,15 @@
             </p>
             <p class="story">{{ post.content }}</p>
         </article>
-        <div>
+        <div class="buttons">
             <a href="/users/{{ post.user.id }}">
-                <button type="button">Author</button>
+                <button class="cancel" type="button">Author</button>
             </a>
             <a href="/posts/{{ post.id }}/edit">
                 <button type="button">Edit</button>
             </a>
             <form action="/posts/{{ post.id }}/delete" method="post">
-                <button type="submit">Delete</button>
+                <button class="delete" type="submit">Delete</button>
             </form>
         </div>
     </main>

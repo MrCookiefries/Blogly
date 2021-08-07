@@ -10,11 +10,11 @@
         <form method="post">
             <label>
                 Title
-                <input name="title" maxlength="50" required type="text">
+                <input name="title" maxlength="50" placeholder="My awesome weekend!" required type="text">
             </label>
             <label>
                 Content
-                <textarea name="content" required></textarea>
+                <textarea name="content" placeholder="I took a vacation to Spain, and here is what I discovered..." required></textarea>
             </label>
             <fieldset>
                 <legend>Tags</legend>
@@ -25,9 +25,9 @@
                     </label>
                 {% endfor %}
             </fieldset>
-            <div>
+            <div class="buttons">
                 <a href="/users/{{ user.id }}">
-                    <button type="button">Cancel</button>
+                    <button class="cancel" type="button">Cancel</button>
                 </a>
                 <button type="submit">Create</button>
             </div>

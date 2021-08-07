@@ -134,12 +134,22 @@ button.delete {
     border-color: var(--colors-tint);
 }
 
+button.cancel {
+    background-color: var(--colors-light);
+    color: var(--colors-dark);
+    border-color: var(--colors-accent);
+}
+
 button:hover {
     color: var(--colors-light);
 }
 
 button.delete:hover {
     color: var(--colors-dark);
+}
+
+button.cancel:hover {
+    color: var(--colors-accent);
 }
 
 /* Other titles */
@@ -239,8 +249,74 @@ b {
     margin-top: 2em;
 }
 
+/* Forms */
 
+label {
+    display: block;
+    margin: 1em 0;
+    font-size: 1.15em;
+    color: var(--colors-main);
+    font-family: var(--font-subtitle);
+}
 
+input, textarea {
+    display: block;
+    padding: 0.25em;
+    margin: 0.75em 0;
+    background-color: var(--colors-tint);
+    border: 2px solid transparent;
+    border-bottom-color: var(--colors-accent);
+    color: var(--colors-light);
+    border-radius: 0.25em;
+}
 
+::placeholder {
+    color: var(--colors-light);
+    opacity: 0.85;
+}
 
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--colors-accent);
+}
 
+textarea {
+    min-width: 300px;
+    min-height: 150px;
+    resize: none;
+}
+
+legend {
+    margin-left: 1em;
+    color: var(--colors-main);
+    font-size: 1.25em;
+    font-family: var(--font-subtitle);
+    padding: 0 0.25em;
+}
+
+fieldset {
+    border: 2px solid var(--colors-accent);
+    display: inline-block;
+    padding: 0 1.25em;
+    margin-bottom: 1em;
+}
+
+input[type="checkbox"] {
+    display: inline;
+    margin-right: 0.25em;
+}
+
+/* Post */
+
+article {
+    padding: 0.25em;
+}
+
+.author {
+    font-family: var(--font-subtitle);
+    font-size: 1.25em;
+}
+
+.space, .story {
+    margin: 1em 0;
+}

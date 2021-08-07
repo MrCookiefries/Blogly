@@ -7,18 +7,18 @@
 {% block body %}
     <main>
         <h2>{{ tag.name }}</h2>
-        <div>
+        <div class="buttons space">
             <a href="/tags/{{ tag.id }}/edit">
                 <button type="button">Edit</button>
             </a>
             <form action="/tags/{{ tag.id }}/delete" method="post">
-                <button type="submit">Delete</button>
+                <button class="delete" type="submit">Delete</button>
             </form>
         </div>
         <ul>
             {% if posts %}
                 {% for post in posts %}
-                    <li>
+                    <li class="space">
                         <a href="/posts/{{ post.id }}">{{ post.title }}</a>
                     </li>
                 {% endfor %}
