@@ -7,13 +7,13 @@
 {% block body %}
     <main>
         <h2>Recent Posts</h2>
-        <ul>
+        <ul class="posts">
             {% for post in posts %}
                 <li>
                     <a href="/posts/{{ post.id }}">
                         {{ post.title }}
                     </a>
-                    <small>{{ post.friendly_date }}</small>
+                    <small>- {{ post.friendly_date }}</small>
                     <p>
                         <b>Tags: </b>
                         {% if post.tags %}

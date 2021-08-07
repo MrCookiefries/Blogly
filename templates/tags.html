@@ -7,10 +7,10 @@
 {% block body %}
     <main>
         <h2>Tags</h2>
-        <ul>
+        <ul class="tag-list">
             {% for tag in tags %}
                 <li>
-                    <a href="/tags/{{ tag.id }}">{{ tag.name }}</a>
+                    <a href="/tags/{{ tag.id }}"><span class="tag clickable">{{ tag.name }}</span></a>
                 </li>
             {% endfor %}
         </ul>

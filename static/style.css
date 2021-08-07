@@ -1,0 +1,246 @@
+:root {
+    --colors-light: #F7F7FF;
+    --colors-accent: #FF8C42;
+    --colors-main: #E0479E;
+    --colors-tint: #007CBE;
+    --colors-dark: #070600;
+    --font-title: 'Abril Fatface', cursive;
+    --font-subtitle: 'Merriweather', serif;
+    --font-text: 'Roboto', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: var(--colors-dark);
+    color: var(--colors-light);
+    font-family: var(--font-text);
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--colors-accent);
+    transition: text-decoration-color ease-in-out 400ms;
+}
+
+a:hover {
+    text-decoration-color: var(--colors-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+}
+
+li {
+    list-style: none;
+    font-family: var(--font-subtitle);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* Center */
+
+header, nav li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Header */
+
+header {
+    padding: 0.5em;
+    background-color: var(--colors-light);
+}
+
+h1 {
+    font-size: 3.5em;
+    color: var(--colors-main);
+    letter-spacing: 4px;
+}
+
+header p {
+    color: var(--colors-tint);
+    font-size: 1.75em;
+    font-weight: 600;
+    margin: 0.75em 0;
+    text-decoration: 4px wavy var(--colors-accent) overline;
+    font-family: var(--font-subtitle);
+}
+
+/* Navigation */
+
+nav {
+    padding: 0.75em;
+    background-color: var(--colors-tint);
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+nav li {
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+nav a {
+    color: var(--colors-light);
+    text-decoration: none;
+    transition: color cubic-bezier(0.165, 0.84, 0.44, 1) 400ms;
+}
+
+nav a:hover {
+    color: var(--colors-dark);
+}
+
+/* Buttons */
+
+.buttons form {
+    display: inline-block;
+}
+
+.buttons button {
+    margin: 0 0.25em;
+}
+
+.buttons a {
+    text-decoration: none;
+}
+
+button {
+    padding: 0.25em;
+    font-size: 1.15em;
+    font-weight: 800;
+    border-radius: 0.5em;
+    background-color: var(--colors-accent);
+    color: var(--colors-dark);
+    border: 2px solid var(--colors-light);
+    transition: color cubic-bezier(0.895, 0.03, 0.685, 0.22) 400ms;
+}
+
+button.delete {
+    background-color: var(--colors-main);
+    color: var(--colors-light);
+    border-color: var(--colors-tint);
+}
+
+button:hover {
+    color: var(--colors-light);
+}
+
+button.delete:hover {
+    color: var(--colors-dark);
+}
+
+/* Other titles */
+
+h2, h3 {
+    font-size: 2em;
+    color: var(--colors-tint);
+    margin: 0.5em 0;
+    text-shadow: 1px 1px var(--colors-light),
+        -1px -1px var(--colors-light),
+        -1px 1px var(--colors-light),
+        1px -1px var(--colors-light);
+}
+
+/* Main content */
+
+main {
+    padding: 0.75em;
+}
+
+/* Posts list */
+
+.posts {
+    display: inline-block;
+}
+
+.posts li {
+    margin: 1.75em 0;
+    padding: 1em;
+    box-shadow: 0 0 6px 4px var(--colors-tint);
+}
+
+.posts p {
+    margin-top: 1em;
+}
+
+b {
+    color: var(--colors-main);
+}
+
+.tag {
+    margin: 0 0.25em;
+    padding: 0.25em;
+    background-color: var(--colors-tint);
+    border-radius: 0.5em;
+    font-family: var(--font-subtitle);
+    font-weight: 500;
+    color: var(--colors-light);
+}
+
+.tag.clickable {
+    transition: color cubic-bezier(0.445, 0.05, 0.55, 0.95) 400ms;
+}
+
+.tag.clickable:hover {
+    cursor: pointer;
+    color: var(--colors-dark);
+}
+
+/* Tag list */
+
+.tag-list li {
+    margin: 1.75em 0;
+}
+
+.tag-list a {
+    text-decoration: none;
+}
+
+/* User list */
+
+.user, .user-post li {
+    margin: 1em 0;
+    font-size: 1.15em;
+}
+
+/* User profile */
+
+.user {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    max-width: 1000px;
+}
+
+.user img {
+    height: 200px;
+    width: auto;
+    border: 4px solid var(--colors-main);
+    border-radius: 50%;
+}
+
+.user section:nth-child(2) {
+    margin-left: 1em;
+}
+
+.user-post {
+    margin-top: 2em;
+}
+
+
+
+
+
+
