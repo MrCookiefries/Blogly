@@ -26,6 +26,14 @@ A blogging website exercise for practice
     python seed.py
     ```
 
+1. Create the PSQL database
+
+    ```sh
+    createdb Blogly
+    # for testing create another DB
+    createdb Blogly_Test
+    ```
+
 1. Start the Flask server & open the page
 
     ```sh
